@@ -1,0 +1,26 @@
+//Naive Recursive Approach  O(2**n)
+//@Ranveer Kumar
+
+
+public class Main
+{   
+    public static int knapsack(int[] weight, int[] val, int W, int n){
+        if(W <= 0 || n <= 0){
+            return 0;
+        }else if(weight[n-1] > W){
+            return knapsack(weight, val, W, n-1);
+        }
+        else{
+            return Math.max(knapsack(weight, val, W-weight[n-1], n-1) + val[n-1], knapsack(weight, val, W, n-1));
+        }
+    }
+    
+    
+    public static void main(String[] args) {
+        int[] weight = {10,20,30};
+        int[] values = {60,100,120};
+        System.out.println(knapsack(weight, values, 70, 3));
+    }
+}
+
+
