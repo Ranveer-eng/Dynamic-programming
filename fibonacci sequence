@@ -1,0 +1,37 @@
+public class YourClassNameHere {
+    public static int[] list = new int[9];
+    
+    //Memorization Approach
+    
+    /*
+     public static int fib(int n){
+       if(n <= 1){
+         list[n] = n;
+         return n;
+       }
+       if(list[n] == 0){
+         list[n]  = fib(n-1) + fib(n-2);  
+         return list[n];
+       }
+       return list[n];
+     }
+    */
+    
+    //Tabulation Approach
+    
+    public static int fib(int n){
+      if(n <= 1){
+        return n;  
+      }
+      list[0] = 0;
+      list[1] = 1;
+      for(int i = 2; i <= n; i++){
+        list[i] = list[i-1] + list[i-2];  
+      }
+      return list[n];
+    }
+    
+    public static void main(String[] args) {
+      System.out.println(fib(8));
+    }
+}
